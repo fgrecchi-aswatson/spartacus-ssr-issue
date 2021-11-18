@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { translationChunksConfig, translations } from "@spartacus/assets";
+import { translationChunksConfig } from "@spartacus/assets";
 import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
 import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
 
@@ -21,7 +21,9 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
     },
   }), provideConfig(<I18nConfig>{
     i18n: {
-      resources: translations,
+      backend: {
+        loadPath: 'assets/i18n-assets/{{lng}}/{{ns}}.json',
+      },
       chunks: translationChunksConfig,
       fallbackLang: 'en'
     },
